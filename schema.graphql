@@ -1,0 +1,60 @@
+type Query {
+  getGolferById(id: ID!): Golfer
+  getGolfers(state: String!, lastName: String!, firstName: String): Golfers
+  users: [User!]!
+  user(id: ID!): User
+}
+
+type User {
+  id: ID!
+  name: String
+  email: String
+  golfer: Golfer
+}
+
+type Golfer {
+  user: User
+  ghinNum: Int
+  firstName: String
+  lastName: String
+  handicapIndex: Float
+  trend: Float
+  gender: String
+  clubName: String
+  email: String
+  assocName: String
+  serviceName: String
+  address1: String
+  address2: String
+  city: String
+  state: String
+  zip: String
+  memberType: String
+  totalDiff: Int
+  service: Int
+  holes: Int
+  revDate: String
+  active: Boolean
+  dateOfBirth: String
+  tScorecount: Int
+  display: Float
+  local: Int
+  type3: Boolean
+  lowHI: Float
+  lowHIDisplay: Float
+  clubType: String
+  membershipPaidTime: String
+  statusDate: String
+  trendTotalDiff: Float
+  trendIndexType: Int
+  trendRevDate: String
+  trendTScoreCount: Int
+  trendDisplay: String
+  playerName: String
+  searchValue: String
+}
+
+type Golfers {
+  golferCount: Int!
+  golfers: [Golfer]
+}
