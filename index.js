@@ -33,11 +33,17 @@ const resolvers = {
             const state = golfer.ArrayOfGolfer.Golfer.State;
             const handicapIndex = golfer.ArrayOfGolfer.Golfer.Value;
             const trend = golfer.ArrayOfGolfer.Golfer.TrendValue;
+            const address1 = golfer.ArrayOfGolfer.Golfer.Address1;
+            const address2 = golfer.ArrayOfGolfer.Golfer.Address2;
+            const city = golfer.ArrayOfGolfer.Golfer.City;
             return {
               firstName,
               lastName,
               handicapIndex,
               ghinNum,
+              address1,
+              address2,
+              city,
               state,
               trend
             };
@@ -90,16 +96,21 @@ const resolvers = {
 };
 
 function extractGolferObject(golfer) {
+  console.log('golfer:', golfer);
+  //console.log('email: ', golfer.Email, ', stringify:', JSON.stringify(golfer.Email), ', typeof:', typeof(golfer.Email));
   return {
     ghinNum: golfer.GHINNumber,
     firstName: golfer.FirstName,
     lastName: golfer.LastName,
-    state: golfer.State,
+    address1: typeof(golfer.Address1) != 'undefined' && golfer.Address1.constructor === Object ? '' : golfer.Address1,
+    address1: typeof(golfer.Address2) != 'undefined' && golfer.Address2.constructor === Object ? '' : golfer.Address2,
+    city: typeof(golfer.City) != 'undefined' && golfer.City.constructor === Object ? '' : golfer.City,
+    state: typeof(golfer.State) != 'undefined' && golfer.State.constructor === Object ? '' : golfer.State,
     handicapIndex: golfer.Value,
     trend: golfer.TrendValue,
     gender: golfer.Gender,
     clubName: golfer.ClubName,
-    email: golfer.Email.constructor === Object ? '' : golfer.Email,
+    email: typeof(golfer.Email) != 'undefined' && golfer.Email.constructor === Object ? '' : golfer.Email,
     assocName: golfer.AssocName
   }
 }

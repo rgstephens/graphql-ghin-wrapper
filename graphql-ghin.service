@@ -1,0 +1,14 @@
+[Unit]
+Description=GraphQL GHIN Wrapper
+After=network.target
+
+[Service]
+Type=simple
+Environment=GHIN_KEY=your-key
+User=greg
+WorkingDirectory=/home/greg/graphql-ghin-wrapper
+ExecStart=/usr/bin/node index.js
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

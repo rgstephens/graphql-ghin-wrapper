@@ -13,7 +13,7 @@ This version supports the following Queries:
 
 ```sh
 git clone https://github.com/rgstephens/graphql-ghin-wrapper.git
-cd graphql-rest-wrapper
+cd graphql-ghin-wrapper
 yarn
 yarn start
 ```
@@ -58,12 +58,31 @@ Find golfer by Name & State
 
 # ToDo
 
+* GraphQL response error message for Login Failed
 * Courses interface
 * Recent scores
 * Revision scores
 * Tournament scores
 * Post scores
 * Handicap history
+
+# systemd File
+
+The `graphql-ghin.sevice` file is included to start the GHIN Wrapper as a systemd service. The file is typically placed in the `/lib/systemd/system` directory. 
+
+You will need to change the **User** and **WorkingDirectory** values in the systemd file for your system.
+
+The related commands to enable, start and stop the service are:
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable graphql-ghin
+sudo systemctl is-enabled graphql-ghin
+sudo systemctl start graphql-ghin
+sudo systemctl stop graphql-ghin
+sudo systemctl status graphql-ghin
+journalctl -u graphql-ghin.service
+```
 
 # GHIN Mobile App API
 
