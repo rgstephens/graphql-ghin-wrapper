@@ -96,7 +96,7 @@ const resolvers = {
 };
 
 function extractGolferObject(golfer) {
-  console.log('golfer:', golfer);
+  //console.log('golfer:', golfer);
   //console.log('email: ', golfer.Email, ', stringify:', JSON.stringify(golfer.Email), ', typeof:', typeof(golfer.Email));
   return {
     ghinNum: golfer.GHINNumber,
