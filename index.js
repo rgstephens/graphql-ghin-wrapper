@@ -80,6 +80,7 @@ const resolvers = {
             if (!golferCount && golfer.ArrayOfGolfer.Golfer) {
               // we have a single golfer
               golfers.push(extractGolferObject(golfer.ArrayOfGolfer.Golfer));
+              //console.log('golfers:', golfers);
               golferCount++;
             }
             console.log("golferCount:", golferCount);
@@ -96,14 +97,14 @@ const resolvers = {
 };
 
 function extractGolferObject(golfer) {
-  //console.log('golfer:', golfer);
-  //console.log('email: ', golfer.Email, ', stringify:', JSON.stringify(golfer.Email), ', typeof:', typeof(golfer.Email));
+  console.log('golfer:', golfer);
+  console.log('Address1: ', golfer.Address1, ', stringify:', JSON.stringify(golfer.Address1), ', typeof:', typeof(golfer.Address1));
   return {
     ghinNum: golfer.GHINNumber,
     firstName: golfer.FirstName,
     lastName: golfer.LastName,
-    address1: typeof(golfer.Address1) != 'undefined' && golfer.Address1.constructor === Object ? '' : golfer.Address1,
-    address1: typeof(golfer.Address2) != 'undefined' && golfer.Address2.constructor === Object ? '' : golfer.Address2,
+    address1: golfer.Address1,
+    address2: golfer.Address2,
     city: typeof(golfer.City) != 'undefined' && golfer.City.constructor === Object ? '' : golfer.City,
     state: typeof(golfer.State) != 'undefined' && golfer.State.constructor === Object ? '' : golfer.State,
     handicapIndex: golfer.Value,
