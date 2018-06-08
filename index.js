@@ -22,7 +22,7 @@ const resolvers = {
         .then(res => res.text())
         .then(body => {
           if (body.length < 600 && body.search("Login Failed")) {
-            console.log("Login Failed");
+            console.log("Login Failed: " + appGhinPassword);
             return null;
           }
           const golfer = parser.toJson(body, { object: true });
@@ -63,7 +63,7 @@ const resolvers = {
           try {
             //console.log('body:', body, 'size:', body.length);
             if (body.length < 600 && body.search("Login Failed")) {
-              console.log("Login Failed");
+              console.log("Login Failed: " + appGhinPassword);
               return { golferCount: 0, golfers: [] };
             }
             const golfer = parser.toJson(body, { object: true });

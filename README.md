@@ -2,6 +2,8 @@
 
 GraphQL wrapper API for the [Golf Handicap and Information Network](http://www.ghin.com/) (GHIN).  The GHIN system is used to track and calculate golfer handicaps.
 
+This GraphQL server uses the [Apollo Server](https://github.com/apollographql/apollo-server) with [graphql-yoga](https://github.com/prismagraphql/graphql-yoga).
+
 ## Supported Functions
 
 This version supports the following Queries:
@@ -84,6 +86,12 @@ sudo systemctl status graphql-ghin
 journalctl -u graphql-ghin.service
 ```
 
+# https Support
+
+```
+sudo certbot certonly --webroot -w /home/greg/graphql-ghin-wrapper -d gstephens.org -d www.gstephens.org -m nworksgreg@gmail.com --agree-tos --no-eff-email
+```
+
 # GHIN Mobile App API
 
 ### Find Golfer by Id
@@ -93,6 +101,10 @@ GET /ghponline/dataservices/golfermethods.asmx/FindGolfer?userName=nstart18&pass
 ```
 
 ### Find Golfer by Name
+
+```
+GET /ghponline/dataservices/golfermethods.asmx/FindGolferNameState?userName=nstart18&password=29&lastName=Halliday&firstName=&state=WA&activeOnly=true
+```
 
 ```
 GET /ghponline/dataservices/golfermethods.asmx/FindGolferNameState?userName=nstart18&password=29&lastName=Halliday&firstName=&state=WA&activeOnly=true
